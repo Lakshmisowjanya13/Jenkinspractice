@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.css">
+    <title>Resource Management</title>
+    <style>
+    body{
+	height:100px;
+	width:100px;
+}
+    .diva{
+  background-color: #3C99DC;
+  width: 50%;
+  padding: 40px;
+  position: absolute;
+  margin-left: 14rem;
+  margin-top: 8rem;
+  align-items: center;
+  border-radius: 12px;
+  padding-top:5px;
+}
+
+ .button {
+  padding: 20px;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: white;
+  background-color: black;
+  border: none;
+  border-radius: 15px;
+  
+}
+
+.button:hover {
+	background-color: #303030;
+	color:white;
+	}
+
+.button:active {
+  background-color: grey;
+  
+  transform: translateY(4px);
+  }
+  </style>
+</head>
+<body style="background-color:rgb(251, 253, 255); width: 100px;">
+<div style="padding-top:-20px; padding-left:1170px;height:25px; padding-right:1px; boder-radius:5px;">
+	<button style="font-family:Trebuchet MS; border-radius:5px; height:40px;color:blue; width:20px; border:1px; font-size:20px;  padding-left:25px; padding-right:100px;"  th:text="${urole}"></text>
+</div>
+<div class="diva">
+    <p style="font-size:25px">Hello, <b><text th:text="${uname}"></text></b> </p>
+    <!--p th:text="${uname}"></p-->
+    <p style="font-size:25px">Welcome</p>
+    <p style="font-size:25px">Please click on the below button to check the available pool action.</p>
+    <a th:href="@{/availablePools}">
+        <button class="button">Available Pools</button>
+    </a>
+
+</div>
+   <!--button><a th:href="@{/Logout}">Logout</a></button-->
+
+</body>
+</body>
+</html>
+
+

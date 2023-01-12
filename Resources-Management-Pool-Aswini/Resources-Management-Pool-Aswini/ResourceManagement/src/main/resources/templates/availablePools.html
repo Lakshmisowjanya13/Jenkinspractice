@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI TASK</title>
+    <link rel="stylesheet" href="ui.css">
+</head>
+
+<body style="background-color:rgb(251, 253, 255);">
+<a th:href="@{/showNewEmployeeForm}"><button class="button"> Add</button></a>
+
+
+<form th:action="@{/import}" method="post" enctype="multipart/form-data">
+    <input class="button" type="file" th:name="file" />
+    <input class="button" th:type="submit" value="Import" />
+</form>
+<table>
+    <tr>
+        <th><a th:href="@{'/details/Java/1'}"><button class="button">JAVA</button></a></th>
+        <th><a th:href="@{'/details/UI/1'}"><button class="button">UI</button></a></th>
+        <th><a th:href="@{'/details/Support/1'}"><button class="button">Support</button></a></th>
+    </tr>
+
+    <tr>
+        <th><a th:href="@{'/details/Devops/1'}"><button class="button">DEVOps</button></a></th>
+        <th><a th:href="@{'/details/SDET/1'}"><button class="button">SDET</button></a></th>
+        <th><a th:href="@{'/details/DE/1'}"><button class="button">DE</button></a></th>
+    </tr>
+</table>
+     <a th:href="@{/Logout}" > <button class="button">Logout</button></a>
+   <text th:text="${err}"></text>
+</body>
+</html>
