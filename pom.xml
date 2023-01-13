@@ -84,20 +84,12 @@
 	</dependencies>
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>3.0.5</version>
-			</plugin>
-		</plugins>
-	</build>
-	<repositories>
-		<repository>
-			<id>gmaven</id>
-			<name>Google Maven</name>
-			<url>https://maven.google.com/</url>
-		</repository>
-	</repositories>
+    		<plugins>
+      			<plugin>
+        			<groupId>org.springframework.boot</groupId>
+        			<artifactId>spring-boot-maven-plugin</artifactId>
+      			</plugin>
+    		</plugins>
+  	</build>
 
 </project>
