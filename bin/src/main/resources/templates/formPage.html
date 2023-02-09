@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<style>
+@import
+	url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap')
+	;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+body {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+	background: linear-gradient(135deg, #71b7e6, rgb(172, 119, 196));
+}
+.multiselect {
+  width: 100%;
+}
+
+.selectBox {
+  position: relative;
+}
+
+.selectBox select {
+  width: 100%;
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#mySelectOptions {
+  display: none;
+  border: 0.5px #7c7c7c solid;
+  background-color: #ffffff;
+  max-height: 150px;
+  overflow-y: scroll;
+}
+
+#mySelectOptions label {
+  display: block;
+  font-weight: normal;
+  display: block;
+  white-space: nowrap;
+  min-height: 1.2em;
+  background-color: #ffffff00;
+  padding: 0 2.25rem 0 .75rem;
+  /* padding: .375rem 2.25rem .375rem .75rem; */
+}
+
+#mySelectOptions label:hover {
+  background-color: #1e90ff;
+}
+
+.container {
+	max-width: 700px;
+	width: 100%;
+	background-color: #fff;
+	padding: 25px 30px;
+	border-radius: 5px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.container .title {
+	font-size: 25px;
+	font-weight: 500;
+	position: relative;
+}
+
+.container .title::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 3px;
+	width: 30px;
+	border-radius: 5px;
+	background: linear-gradient(135deg, #71b7e6, rgb(171, 118, 194));
+}
+
+.content form .user-details {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 20px 0 12px 0;
+}
+
+
+form .user-details .input-box {
+	margin-bottom: 15px;
+	width: calc(100%/ 2 - 20px);
+}
+
+form .input-box span.details {
+	display: block;
+	font-weight: 500;
+	margin-bottom: 5px;
+}
+
+.user-details .input-box input {
+	height: 45px;
+	width: 100%;
+	outline: none;
+	font-size: 16px;
+	border-radius: 5px;
+	padding-left: 15px;
+	border: 1px solid #ccc;
+	border-bottom-width: 2px;
+	transition: all 0.3s ease;
+}
+
+.user-details .input-box input:focus, .user-details .input-box input:valid
+	{
+	border-color: #9b59b6;
+}
+
+form .location-details {
+	font-size: 18px;
+	font-weight: 500;
+}
+
+form .category {
+	display: flex;
+	width: 80%;
+	margin: 14px 0;
+	justify-content: space-between;
+}
+
+form .category label {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+}
+
+form .category label .dot {
+	height: 18px;
+	width: 18px;
+	border-radius: 50%;
+	margin-right: 10px;
+	background: #d9d9d9;
+	border: 5px solid transparent;
+	transition: all 0.3s ease;
+}
+
+#dot-1:checked ~ .category label .one, #dot-2:checked ~ .category label .two,
+	#dot-3:checked ~ .category label .three {
+	background: #9b59b6;
+	border-color: #d9d9d9;
+}
+
+form input[type="radio"] {
+	display: none;
+}
+
+form .button {
+	height: 45px;
+	margin: 35px 0
+}
+
+form .button input {
+	height: 100%;
+	width: 100%;
+	border-radius: 5px;
+	border: none;
+	color: #fff;
+	font-size: 18px;
+	font-weight: 500;
+	letter-spacing: 1px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+form .button input:hover {
+	/* transform: scale(0.99); */
+	background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+}
+
+@media ( max-width : 584px) {
+	.container {
+		max-width: 100%;
+	}
+	form .user-details .input-box {
+		margin-bottom: 15px;
+		width: 100%;
+	}
+	form .category {
+		width: 100%;
+	}
+	.content form .user-details {
+		max-height: 300px;
+		overflow-y: scroll;
+	}
+	.user-details::-webkit-scrollbar {
+		width: 5px;
+	}
+}
+
+@media ( max-width : 459px) {
+	.container .content .category {
+		flex-direction: column;
+	}
+}
+</style>
+<script>
+	function displayMessage() {
+
+		let text = "Form Submitted successfully";
+
+		document.getElementById("alertMsg").innerHTML = "";
+		setTimeout(function() {
+			document.getElementById("alertMsg").innerHTML = text;
+		}, 5000);
+	}
+	window.onload = (event) => {
+		  initMultiselect();
+		};
+
+		function initMultiselect() {
+		  checkboxStatusChange();
+
+		  document.addEventListener("click", function(evt) {
+		    var flyoutElement = document.getElementById('myMultiselect'),
+		      targetElement = evt.target; // clicked element
+
+		    do {
+		      if (targetElement == flyoutElement) {
+		        // This is a click inside. Do nothing, just return.
+		        //console.log('click inside');
+		        return;
+		      }
+
+		      // Go up the DOM
+		      targetElement = targetElement.parentNode;
+		    } while (targetElement);
+
+		    // This is a click outside.
+		    toggleCheckboxArea(true);
+		    //console.log('click outside');
+		  });
+		}
+
+		function checkboxStatusChange() {
+		  var multiselect = document.getElementById("mySelectLabel");
+		  var multiselectOption = multiselect.getElementsByTagName('option')[0];
+
+		  var values = [];
+		  var checkboxes = document.getElementById("mySelectOptions");
+		  var checkedCheckboxes = checkboxes.querySelectorAll('input[type=checkbox]:checked');
+
+		  for (const item of checkedCheckboxes) {
+		    var checkboxValue = item.getAttribute('value');
+		    values.push(checkboxValue);
+		  }
+
+		  var dropdownValue = "Nothing is selected";
+		  if (values.length > 0) {
+		    dropdownValue = values.join(', ');
+		  }
+
+		  multiselectOption.innerText = dropdownValue;
+		}
+
+		function toggleCheckboxArea(onlyHide = false) {
+		  var checkboxes = document.getElementById("mySelectOptions");
+		  var displayValue = checkboxes.style.display;
+
+		  if (displayValue != "block") {
+		    if (onlyHide == false) {
+		      checkboxes.style.display = "block";
+		    }
+		  } else {
+		    checkboxes.style.display = "none";
+		  }
+		}
+</script>
+</head>
+<body>
+	<div class="container">
+		<div class="title">Registration</div>
+		<div class="content">
+			<form action="#" th:action="@{/saveForm/{id}(id=${empId})}"
+				th:object="${formDetails}" method="POST" onclick="displayMessage();">
+				<div class="user-details">
+					<div class="input-box">
+						<span class="details">Blocked by</span> <input type="text"
+							th:field="*{blockedBy}" placeholder="Blocked by" required>
+					</div>
+					<div class="input-box">
+						<span class="details">Project Name</span> <input type="text"
+							placeholder="Project Name" required th:field="*{project}">
+
+					</div>
+					<div class="input-box">
+                    				<span class="details">Customer Name</span>
+                    				<input type="text" placeholder="Customer Name" required th:field="*{customername}">
+                			</div>
+	
+
+
+					<div class="input-box">
+						<span class="details">Billing start Date</span> <input type="text"
+							placeholder="01/01/2022" th:field="*{billStarted}" required>
+					</div>
+					<div class="input-box">
+						<span class="details">Billing End Date</span> <input type="text"
+							placeholder="01/01/2030" th:field="*{billEnded}" required>
+					</div>
+					<div class="input-box">
+						<span class="details">Billing Rate</span> <input type="text"
+							placeholder="Billing Rate" required th:field="*{billRate}">
+					</div>
+					<div class="input-box">
+						<span class="details">Job Description</span> <input type="text"
+							placeholder="Job Description" required th:field="*{jobDesc}">
+					</div>
+				</div>
+				<div class="location-details">
+
+					<span class="details">Job Location:</span>
+
+ <div class="form-group col-sm-8">
+    <div id="myMultiselect" class="multiselect">
+      <div id="mySelectLabel" class="selectBox" onclick="toggleCheckboxArea()">
+        <select class="form-select">
+          <option>somevalue</option>
+        </select>
+        <div class="overSelect"></div>
+      </div>
+      <div id="mySelectOptions">
+      <label >HCL office</label>
+        <label for="one"><input type="checkbox" id="one" onchange="checkboxStatusChange()" value="Chennai" th:field="*{location}" th:value="Chennai" />Chennai</label>
+        <label for="two"><input type="checkbox" id="two" onchange="checkboxStatusChange()" value="Banglore"th:field="*{location}" th:value="Banglore" />Banglore</label>
+        <label for="three"><input type="checkbox" id="three" onchange="checkboxStatusChange()" value="Hyderabad" th:field="*{location}" th:value="Hyderabad"/>Hyderabad</label>
+        <label for="six"><input type="checkbox" id="six" onchange="checkboxStatusChange()" value="Noida" th:field="*{location}" th:value="Noida"/>Noida</label>
+        <label>Others</label>
+        <label for="four"><input type="checkbox" id="four" onchange="checkboxStatusChange()" value="PANIndia" th:field="*{location}" th:value="PANIndia"/>PAN India</label>
+        <label for="five"><input type="checkbox" id="five" onchange="checkboxStatusChange()" value="CustomerOffice" th:field="*{location}" th:value="CustomreOffice"/>Customer Office</label>
+       
+      </div>
+    </div>
+  </div>
+<div class="button">
+	<input type="submit" value="Submit">
+</div>
+</form>
+<div>
+<p style='color: green' th:text="${msg}"></p>
+</div>
+<a th:href="@{/login/}"> Back</a>
+</div>
+<text th:text="${err}"></text>
+</div>
+</body>
+</html>
+
+
+

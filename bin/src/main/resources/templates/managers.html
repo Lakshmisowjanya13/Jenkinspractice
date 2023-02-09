@@ -1,0 +1,142 @@
+
+<!--DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Managers</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body style="background-color:rgb(251, 253, 255);">
+<h1 style="text-align:center">Manager Profiles</h1>
+
+<table border="2" align="center">
+    <div align="center">
+        <thead>
+        <tr>
+            <th>Manager Id</th>
+            <th>Manager Name</th>
+            <th>Select</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="manager : ${listManagers}">
+            <td style='color:green' th:text="${manager.id}"></td>
+            <td th:text="${manager.name}"></td>
+            <nbsp></nbsp>
+
+            <td>
+                <a class="btn btn-secondary" th:if="${manager.selected} == 'true'">Selected</a>
+                <a class="btn btn-primary" th:if="${manager.selected} != 'true'"
+                   th:href="@{/share/{emp_id}/{mng_id}(emp_id=${emp_id},mng_id=${manager.id})}">Select</a>
+                        <a class="btn btn-primary" th:if="${}" th:href="@{/manager/{id}(id=${manager.id})}">Go to Profile</a>
+            </td>
+            <!--      <td><a th:href="">Delete</a></td>>
+        </tr>
+        </tbody>
+    </div>
+</table>
+    <span ><a th:href="@{/availablePools}" th:if="${managerId==Admin}" align="center"> Back to Available Pool</a>
+    <button><a th:href="@{/Logout}" align="center">Logout</a></button></span>
+    <text th:text="${err}"></text>
+</body>
+</html-->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Managers</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body
+	style="background: linear-gradient(135deg, #71b7e6, rgb(189, 146, 207));">
+
+	<section class="ftco-section" >
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Manager Profiles</h2>
+				</div>
+			</div>
+			<div class="row" align="center">
+				<div class="col-md-12">
+					<div class="table-wrap">
+						<table class="table table-striped"
+							style="background: #fff; border-radius: 5px; box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);width:600px;">
+							<thead>
+								<tr>
+									<th>Manager Id</th>
+									<th>Manager Name</th>
+									<th>Select</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="manager : ${listManagers}">
+									<td style='color: green' th:text="${manager.id}"></td>
+									<td th:text="${manager.name}"></td>
+									<nbsp></nbsp>
+
+									<td><a class="btn btn-success"
+										th:if="${manager.selected} == 'true'">Selected</a> <a
+										class="btn btn-primary" th:if="${manager.selected} != 'true'"
+										th:href="@{/share/{emp_id}/{mng_id}(emp_id=${emp_id},mng_id=${manager.id})}">Select</a>
+										<a class="btn btn-primary"
+										th:href="@{/manager/{id}(id=${manager.id})}">Go to Profile</a>
+									</td>
+									<!--      <td><a th:href="">Delete</a></td>-->
+								</tr>
+							</tbody>
+						</table>
+
+					</div>
+					<button class="btn"><a th:href="@{/details/All/1}"  align="center">Back</a> </button>
+					<button class="btn"><a th:href="@{/Logout}" align="center">Logout</a></button></span>
+                    <text th:text="${err}"></text> 
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- <table border="2" align="center">
+    <div align="center">
+        <thead>
+        <tr>
+            <th>Manager Id</th>
+            <th>Manager Name</th>
+            <th>Select</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="manager : ${listManagers}">
+            <td style='color:green' th:text="${manager.id}"></td>
+            <td th:text="${manager.name}"></td>
+            <nbsp></nbsp>
+
+            <td>
+                <a class="btn btn-secondary" th:if="${manager.selected} == 'true'">Selected</a>
+                <a class="btn btn-primary" th:if="${manager.selected} != 'true'"
+                   th:href="@{/share/{emp_id}/{mng_id}(emp_id=${emp_id},mng_id=${manager.id})}">Select</a>
+                        <a class="btn btn-primary" th:href="@{/manager/{id}(id=${manager.id})}">Go to Profile</a>
+            </td>
+                 <td><a th:href="">Delete</a></td>
+        </tr>
+        </tbody>
+    </div>
+</table> -->
+</body>
+</html>
+
