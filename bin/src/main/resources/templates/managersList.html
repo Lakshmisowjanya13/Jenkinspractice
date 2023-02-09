@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>ShareList</title>
+</head>
+<body
+	style="background: linear-gradient(135deg, #71b7e6, rgb(189, 146, 207));">
+<div style="padding-top:0px;" class="responsive-diagonal">
+   <span style="padding-right:0px;height:20px; width:50px;"> 
+   <div align="right">
+       <div  style="padding-right:200px; width:50px; height:40px; padding-top:1px;">
+    	<b><button style="font-family:Trebuchet MS; border-radius:5px; height:40px;color:blue; width:30px; border:1px; font-size:20px;  padding-left:25px; padding-right:100px;" th:text="${managerId}"></button></b><br>
+      </div>
+      </div>
+      <label style="font-family:Trebuchet MS; font-size:25px; width:50px; padding-top:2px; height:25px;  color:blue; padding-left:50px;">Hello&nbsp<b><text id="empname"  th:text="${managerName}"></text></label></span>
+</div>
+<section class="ftco-section" >
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Manager Profiles</h2>
+				</div>
+			</div>
+			<div class="row" align="center">
+				<div class="col-md-12">
+					<div class="table-wrap">
+						<table class="table table-striped"
+							style="background: #fff; border-radius: 5px; box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);width:600px;">
+							 <thead>
+        <tr  align="center">
+            <th align="center"> Manager Name</th>
+            <th>Manager Id</th>         
+        </tr>
+        </thead>
+						 <tbody>
+        <tr th:each="manager : ${listEmployee}">
+           <td th:text="${manager.name}"></td>
+           <td th:text="${manager.id}"></td> 
+        </tr>
+        </tbody>
+						</table>
+
+					</div>
+					  
+					
+					<button class="btn"><a th:href="@{/Logout}" align="center">Logout</a></button></span>
+                    <text th:text="${err}"></text> 
+				</div>
+			</div>
+		</div>
+	</section>
+<!-- <div align="center" class="container" style="padding-top:30px; font-family:Trebuchet MS;">
+    <table border="2" style="width:100%">
+        <thead>
+        <tr  align="center">
+            <th align="center"> Manager Name</th>
+            <th>Manager Id</th>         
+        </tr>
+        </thead>
+       <tbody>
+        <tr th:each="manager : ${listEmployee}">
+           <td th:text="${manager.name}"></td>
+           <td th:text="${manager.id}"></td> 
+        </tr>
+        </tbody>
+    </table>
+    <button><a th:href="@{/Logout}" >Logout</a></button>
+    button><a th:href="@{/update/{name} (name=manager.name)}" >Update</a></button
+    <text th:text="${err}"></text> -->
+</body>
+</html>
