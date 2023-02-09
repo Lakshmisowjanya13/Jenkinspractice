@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.css">
+    <title>Resource Management</title>
+    <style>
+     body{
+    background: linear-gradient(135deg, #71b7e6, rgb(189, 146, 207));
+}
+div {
+  box-shadow: 0 5px 10px rgba(0,0,0,0.50);
+  width: 55%;
+  padding: 40px;
+  position: absolute;
+  margin-left: 17rem;
+  margin-top: 6rem;
+  align-items: center;
+  border-radius: 12px;
+  border-color:grey;
+  background:white;
+}
+
+ button {
+  padding: 20px;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: white;
+  background: linear-gradient(135deg, #71b7e6, rgb(168, 112, 192));
+  border: none;
+  border-radius: 15px;
+  
+}
+
+.button:hover {
+	background: linear-gradient(-135deg, #71b7e6, rgb(168, 112, 192));
+	color:black;
+	}
+
+.button:active {
+  background-color: grey;
+  
+  transform: translateY(4px);
+  }  
+
+</style>
+</head>
+<body>
+	<button class="button" style="float:right; width:150px;"  th:text="${urole}"></button>
+    <div>
+        <p style="font-size:25px">Hello <b><text th:text="${uname}"></text></b>!</p>
+        <p style="font-size:25px">Welcome.</p>
+        <p style="font-size:25px">Please click on the below button to check the available pool action.</p>
+        <a th:href="@{/availablePools}">
+        	<button class="button" >Available Resources Pool</button>
+        </a>
+    </div>
+  
+</body>
+</body>
+</html>
+
+
