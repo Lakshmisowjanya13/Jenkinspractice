@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+
+   
+    <style>
+    body{
+
+  background: linear-gradient(135deg, rgb(191, 201, 232), rgb(182, 233, 177));
+}
+.btnCustom:hover {
+	background: linear-gradient(135deg, #8c9cd6, rgb(73, 200, 62));
+	color:black;
+	}
+
+.btnCustom:active {
+  background-color: grey;
+  
+  transform: translateY(4px);
+  }
+.btnCustom{
+    background: linear-gradient(135deg, #8c9cd6, rgb(73, 200, 62));
+}
+ </style>
+
+
+</head>
+
+<body style="height:610px; background: linear-gradient(135deg, #64aedf, rgb(129, 215, 157));">
+<div class="container p-4" style="margin-top:110px">
+    <div class="row justify-content-md-center">
+        <div class="col-lg-7">
+            <div class="card">
+                <center><p style='color:green' th:text="${msg}"></p></center>
+                <div class="card-body">
+                    <h5 class="card-title text-center">UPDATE EMPLOYEE DETAILS</h5>
+
+                    <!-- General Form Elements -->
+                    <form action="#" th:action="@{/update/{id}(id=${employee.id})}" th:object="${employee}"
+                          method="POST" onclick="displayMessage();">
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label">SAPcode</label>
+                            <div class="col-sm-10">
+                                <input type="text" th:field="*{SAPcode}" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label">Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" th:field="*{Name}" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label">Role</label>
+                            <div class="col-sm-10">
+                                <select class="form-select" th:field="*{Role}" aria-label="Default select example" required>
+                                    <option value="Admin">Admin</option>
+                                    <option value="Developer">Developer</option>
+                                    <option value="QA">QA</option>
+                                    <option value="None">None</option>
+                               
+                                </select>
+                            </div>
+                        </div>
+                       
+                        <button class="btn text-white btnCustom" type="submit"  style="margin-left:200px; width:30%">Save</button>
+                    </form><!-- End General Form Elements -->
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<text th:text="${err}"></text>
+</body>
+</html>

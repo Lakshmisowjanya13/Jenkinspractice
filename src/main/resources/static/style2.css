@@ -1,0 +1,18 @@
+body{
+
+  background: linear-gradient(135deg, rgb(191, 201, 232), rgb(182, 233, 177));
+}
+.btnCustom:hover {
+	background: linear-gradient(135deg, #8c9cd6, rgb(73, 200, 62));
+	color:black;
+	}
+
+.btnCustom:active {
+  background-color: grey;
+  
+  transform: translateY(4px);
+  }
+.btnCustom{
+    background: linear-gradient(135deg, #8c9cd6, rgb(73, 200, 62));
+}
+ 

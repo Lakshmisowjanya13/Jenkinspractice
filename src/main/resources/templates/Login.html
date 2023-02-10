@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+
+
+<script src="login.js"></script>
+
+<style>
+body {
+	background: linear-gradient(135deg, #64aedf, rgb(129, 215, 157));
+}
+.container {
+  box-shadow: 0 5px 10px rgba(0,0,0,0.50);
+  width: 25%;
+  padding: 40px;
+  position: absolute;
+  margin-left: 26rem;
+  margin-top: 1rem;
+  align-items: center;
+  border-radius: 12px;
+  border-color:grey;
+  background:white;
+}
+
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+ 
+  
+  input[type=email], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  }
+  
+  input[type=password], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  
+  }
+  
+button {
+	padding: 20px;
+	font-size: 18px;
+	text-align: center;
+	cursor: pointer;
+	outline: none;
+	color: rgb(16, 11, 11);
+	background: linear-gradient(135deg, #8c9cd6, rgb(73, 200, 62));
+	border: none;
+	border-radius: 15px;
+	width:45%;
+	box-shadow: 0 5px 10px rgb(128, 124, 126);
+  }
+  
+ button:hover {
+	  background: linear-gradient(-135deg, #979be1, rgb(137, 214, 55));
+	  color:white;
+	  }
+  
+ button:active {
+	background-color: grey;
+	
+	transform: translateY(4px);
+	}
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+<form action="#" th:action="@{/login/}" th:object="${user}"
+            method="post" >
+<div class="container">
+<center>
+<header><h2><b>LOGIN FORM</b></h2></header></center>
+<label for="uname"><b>Username:</b></label>
+<input type="text" style="height:50px;"class="form-control" th:field="*{Email}"
+                        placeholder="Username/Email" required/>
+<label for="password"><b>Password:</b></label>
+<input type="password" class="form-control" th:field="*{Password}"
+                        placeholder="Password" style="height:50px;" id="password" required minlength="6" maxlength="10"/>
+<input type="checkbox" onclick="mypassword()"/>Show Password <br><br>
+<label for="Role"><b>Role:</b></label>
+ <select class="form-select" aria-label="Default select example"  th:field="*{Role}" id="Role">
+        
+          <option th:value="admin">Admin</option>
+          <option th:value="Developer">Developer</option>
+          <option th:value="QA">QA</option>
+          <option th:value="None">None</option>
+        
+  </select> 
+  <center> 
+  <button type="submit">Login</button></center></form>
+  <br></br>
+   <text th:text="${err}" align="center"></text>
+ 
+</div>
+
+
+<script>
+function mypassword() {
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+          x.type = "text";
+        } else {
+          x.type = "password";
+        }
+      }
+</script>
+
+</body>
+</html>

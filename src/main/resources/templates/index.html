@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="landingstyle.css">
+    <title>Role Based Access System</title>
+    <style>
+       body{
+    background: linear-gradient(135deg, #64aedf, rgb(129, 215, 157));
+}
+div {
+  box-shadow: 0 5px 10px rgba(0,0,0,0.50);
+  width: 55%;
+  padding: 40px;
+  position: absolute;
+  margin-left: 15rem;
+  margin-top: 8rem;
+  align-items: center;
+  border-radius: 12px;
+  border-color:grey;
+  background:white;
+}
+
+
+
+ button {
+  padding: 20px;
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: white;
+  background: linear-gradient(135deg, #8c9cd6, rgb(73, 200, 62));
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 5px 10px rgb(128, 124, 126);
+  width:25%;
+  
+}
+
+.button:hover {
+	background: linear-gradient(-135deg, #979be1, rgb(137, 214, 55));
+	color:black;
+	}
+
+.button:active {
+  background-color: grey;
+  
+  transform: translateY(4px);
+  }  
+    
+    
+    </style>
+</head>
+<body>
+<div>
+<center>
+   <h1>ROLE BASED ACCESS SYSTEM</h1>
+   <h3>Welcome to Role Based Access System Web Application</h3>
+   <a th:href="@{/login/}">
+    <button class="button"><b>LOGIN</b></button></button>
+</a>
+</center>
+</div>
+
+
+
+</body>
+</body>
+</html>

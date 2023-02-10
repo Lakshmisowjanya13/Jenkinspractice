@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+   
+    <title>Task 1</title>
+    <style>
+button {
+	padding: 15px;
+	font-size: 15px;
+	text-align: center;
+	cursor: pointer;
+	outline: none;
+	background: linear-gradient(135deg, rgb(175, 210, 237), rgb(203, 239, 215));
+	border: none;
+	border-radius: 10px;
+	width:90px;
+	box-shadow: 0 5px 10px rgb(192, 192, 192);
+  }
+  
+  .button:hover {
+	  background: linear-gradient(-135deg, rgb(96, 175, 255), rgb(0, 204, 102));
+	color:black;
+	  }
+  
+  .button:active {
+	 background-color: grey;
+  
+  transform: translateY(4px);
+	}
+table {
+    border-collapse: collapse;
+    margin: auto;
+   width:100%;
+   
+  
+  }
+  
+  
+  
+  
+  th{
+    /*background: linear-gradient(135deg, rgb(43, 136, 198), rgb(248, 252, 250));*/
+    background:rgb(80, 80, 80);
+    height:5px;
+    color:white;
+	
+
+   }
+  @media only screen and (max-width: 400px) {
+    td, th {
+      display: block;
+      width: 100%;
+      text-align: left;
+    }
+    td:not(:first-child),
+    th:not(:first-child) {
+      margin: auto;
+    }
+  }
+  </style>
+    
+</head>
+<body style="background: linear-gradient(135deg, #64aedf, rgb(129, 215, 157)); height:580px">
+
+<section class="ftco-section">
+	
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section" align="center" style="font-size:30px;"><b>USER DETAILS</b></h2>
+				</div>
+			</div>
+			<br><a th:href="@{/showForm}" style="text-decoration:none;"><button>Add</button></a></br>
+			<div align="center">
+			<br>
+						<table class="table table-striped"  
+							style="table-layout: fixed;
+  							width: 1200px; background: #fff; border-radius: 5px;
+  							 box-shadow: 0 5px 10px rgb(64, 0, 64);">
+							 <thead>
+        
+  							<tr>
+    							<th>Sap Code</th>
+								<th>Name</th>
+								<th>Band</th>
+								<th>DOJ</th>
+								<th>Location</th>
+								<th>Role</th>
+								<th>Email</th>
+								<th>Phone Number</th>
+								<th colspan="3">Actions</th>
+							</tr>
+           			 </thead>
+        			<tbody align="center">
+        			<tr th:each="employee : ${listEmployees}">
+            
+            				<td th:text="${employee.SAPcode}"></td>
+            				<td th:text="${employee.Name}"></td>
+            				<td th:text="${employee.BAND}"></td>
+            				<td th:text="${employee.DOJ}"></td>
+            				<td th:text="${employee.Location}"></td>
+            				<td th:text="${employee.Role}"></td>
+            				<td th:text="${employee.email}"></td>
+            				<td th:text="${employee.Phone_No}"></td>  
+            <!--td>
+            <a class="btn btn-danger" th:if="${manager_block} != 'true' "
+               th:href="@{/deleteEmployee/{id}(id=${employee.id})}">Delete</a>
+            <a class="btn btn-warning"  th:href="@{/updateEmployee/{id}(id=${employee.id})}" >Update</a></td-->
+                           <td>
+                                <!--a href=""><button class="button">Revoke</button></a>
+	    						<a href=""><button class="button">Allocate</button></a-->
+								<a th:href="@{/deleteByID/{id}(id=${employee.id})}"><button class="button" onclick="prompt()">Delete</button></a></td>
+								<td>
+								<a th:href="@{/revoke/{id}(id=${employee.id})}"><button class="button" onclick="prompt1()">Revoke</button></a></td>
+	
+							</td>
+							<td>
+								<a th:href="@{/update/update/{id}(id=${employee.id})}"><button class="button">Allocate</button></a></td>
+	
+							</td>
+        			</tr>
+        		</tbody>
+      </table>
+   </div>		
+  </section> 
+  <br><a th:href="@{/logout}"  align="center" style="text-decoration:none; margin-left:550px; margin-bottom:10px"><button align="center">Logout</button></a></br>
+</div>
+<text th:text="${err}"></text>
+
+<script>
+function prompt(){
+	alert("Deleting the user");
+}
+function prompt1(){
+	alert("Do you want to revoke role?");
+}
+
+</script>
+
+
+
+</body>
+</html>
+
+
+

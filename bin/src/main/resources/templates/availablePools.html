@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI TASK</title>
+    <link rel="stylesheet" href="ui.css">
+    <style>
+      body{
+	background: linear-gradient(135deg, #71b7e6, rgb(189, 146, 207));
+}
+a {
+	float:right;
+	
+}
+table{
+  background-color: #fff;
+  width: 55%;
+  height:320px;
+  padding: 40px;
+  position: absolute;
+  margin-left: 17rem;
+  margin-top: 4rem;
+  align-items: center;
+  border-radius: 12px;
+  }
+  
+.button {
+  padding: 20px;
+  font-size: 15px;
+  text-align:center;
+  cursor: pointer;
+  outline: none;
+  color: white;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  border: none;
+  border-radius: 15px;
+  width:180px;
+  
+}
+
+.button:hover {
+	background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+	color:white;
+	}
+.button:active {
+  background-color: grey;
+  
+  transform: translateY(4px);
+  }	
+</style>
+</head>
+
+<body style="background-color:rgb(251, 253, 255);">
+<a th:href="@{/showNewEmployeeForm}"><button class="button"> Add</button></a>
+
+
+<form th:action="@{/import}" method="post" enctype="multipart/form-data">
+    <input class="button" style="width:20%; background-color:white;"  type="file" th:name="file" />
+    <input class="button" style="background-color:white;" th:type="submit" value="Import" />
+</form>
+<table>
+    <tr>
+        <th><a th:href="@{'/details/Java/1'}"><button class="button">JAVA</button></a></th>
+        <th><a th:href="@{'/details/UI/1'}"><button class="button">UI</button></a></th>
+        <th><a th:href="@{'/details/Support/1'}"><button class="button">Support</button></a></th>
+    </tr>
+
+    <tr>
+        <th><a th:href="@{'/details/Devops/1'}"><button class="button">DEVOps</button></a></th>
+        <th><a th:href="@{'/details/SDET/1'}"><button class="button">SDET</button></a></th>
+        <th><a th:href="@{'/details/DE/1'}"><button class="button">DE</button></a></th>
+    </tr>
+</table>
+     <a th:href="@{/Logout}" > <button class="button">Logout</button></a>
+   <text th:text="${err}"></text>
+</body>
+</html>

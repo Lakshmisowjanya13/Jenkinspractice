@@ -1,0 +1,39 @@
+body{
+    background: linear-gradient(135deg, #71b7e6, rgb(189, 146, 207));
+}
+div {
+  box-shadow: 0 5px 10px rgba(0,0,0,0.50);
+  width: 55%;
+  padding: 40px;
+  position: absolute;
+  margin-left: 17rem;
+  margin-top: 6rem;
+  align-items: center;
+  border-radius: 12px;
+  border-color:grey;
+  background:white;
+}
+
+ button {
+  padding: 20px;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: white;
+  background: linear-gradient(135deg, #71b7e6, rgb(168, 112, 192));
+  border: none;
+  border-radius: 15px;
+  
+}
+
+.button:hover {
+	background: linear-gradient(-135deg, #71b7e6, rgb(168, 112, 192));
+	color:black;
+	}
+
+.button:active {
+  background-color: grey;
+  
+  transform: translateY(4px);
+  }  
