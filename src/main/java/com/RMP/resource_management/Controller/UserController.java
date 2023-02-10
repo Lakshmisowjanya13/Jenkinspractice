@@ -168,7 +168,7 @@ public class UserController {
 	   @GetMapping("/update/update/{id}")
 	   public String updateDetails(@PathVariable Long id,Model model) {
 		   model.addAttribute("employee",usSer.getUserById(id));
-		   return "updateDetails";
+		   return "UpdateDetails";
 	   }
 	   
 	   
@@ -185,7 +185,7 @@ public class UserController {
 			   }
 		   catch(Exception e) { 
 			   model.addAttribute("err","unable to update");
-			   return "updateDetails";
+			   return "UpdateDetails";
 			   }
 		   }
 	   @GetMapping("/revoke/{id}")

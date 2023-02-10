@@ -4,40 +4,93 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-
-   
-    <style>
-    body{
-
-  background: linear-gradient(135deg, rgb(191, 201, 232), rgb(182, 233, 177));
+<style>
+body {
+	background: linear-gradient(135deg, #64aedf, rgb(129, 215, 157));
 }
-.btnCustom:hover {
-	background: linear-gradient(135deg, #8c9cd6, rgb(73, 200, 62));
-	color:black;
-	}
+.container {
+  box-shadow: 0 5px 10px rgba(0,0,0,0.50);
+  width: 25%;
+  padding: 40px;
+  position: absolute;
+  margin-left: 26rem;
+  margin-top: 1rem;
+  align-items: center;
+  border-radius: 12px;
+  border-color:grey;
+  background:white;
+}
 
-.btnCustom:active {
-  background-color: grey;
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+ 
   
-  transform: translateY(4px);
+  input[type=email], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
   }
-.btnCustom{
-    background: linear-gradient(135deg, #8c9cd6, rgb(73, 200, 62));
-}
- </style>
-
-
+  
+  input[type=password], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  
+  }
+  
+button {
+	padding: 20px;
+	font-size: 18px;
+	text-align: center;
+	
+	cursor: pointer;
+	outline: none;
+	color: rgb(16, 11, 11);
+	background: linear-gradient(135deg, #8c9cd6, rgb(73, 200, 62));
+	border: none;
+	border-radius: 15px;
+	width:35%;
+	box-shadow: 0 5px 10px rgb(128, 124, 126);
+  }
+  
+ button:hover {
+	  background: linear-gradient(-135deg, #979be1, rgb(137, 214, 55));
+	  color:white;
+	  }
+  
+ button:active {
+	background-color: grey;
+	
+	transform: translateY(4px);
+	}
+</style>
 </head>
 
 <body style="height:610px; background: linear-gradient(135deg, #64aedf, rgb(129, 215, 157));">
-<div class="container p-4" style="margin-top:110px">
+<div class="container " >
     <div class="row justify-content-md-center">
         <div class="col-lg-7">
             <div class="card">
-                <center><p style='color:green' th:text="${msg}"></p></center>
+                
+<center><p style='color:green' th:text="${msg}"></p></center>
                 <div class="card-body">
-                    <h5 class="card-title text-center">UPDATE EMPLOYEE DETAILS</h5>
+                    <center><h2 class="card-title text-center">Allocate New Role</h2></center>
 
                     <!-- General Form Elements -->
                     <form action="#" th:action="@{/update/{id}(id=${employee.id})}" th:object="${employee}"
@@ -61,13 +114,11 @@
                                     <option value="Admin">Admin</option>
                                     <option value="Developer">Developer</option>
                                     <option value="QA">QA</option>
-                                    <option value="None">None</option>
-                               
                                 </select>
                             </div>
                         </div>
-                       
-                        <button class="btn text-white btnCustom" type="submit"  style="margin-left:200px; width:30%">Save</button>
+                       <center>
+                        <button type="submit">Save</button></center>
                     </form><!-- End General Form Elements -->
                 </div>
             </div>
